@@ -12,7 +12,8 @@ public class Weapon extends Physical {
     private final int damage = 1000;
 
     public Weapon(double[] location, double[] vectors) {
-        super(new Shaper().getWeap(),location.clone(),vectors.clone(),2,80,new Color(130,180,20),false);
+        super(location.clone(),vectors.clone(),2,80,false);
+        this.getShape(Shapes.MISSILE, new Color(130,180,20));
     }
 
     @Override

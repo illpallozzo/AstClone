@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 public class Space extends JPanel {
     private int height;
     private int width;
+    private static String display = "";
     private final ArrayList<Physical> physicales;
     private Physical ballistic; 
     private final Random r = new Random();
@@ -17,6 +18,7 @@ public class Space extends JPanel {
     public Space(int width, int height) {
         this.height = height;
         this.width  = width;
+        physicales = new ArrayList<>();
     }
     
     @Override
@@ -25,7 +27,7 @@ public class Space extends JPanel {
         //various instructions for doodling 
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, width, height);
-        g.setColor(Color.YELLOW);        
+        g.setColor(Color.YELLOW);
         drawPhysicals(g);
         repaint();
     }
@@ -36,10 +38,12 @@ public class Space extends JPanel {
     }
 
     private void drawPhysicals (Graphics g) {
+        //g.drawString(display, 20, 400);
         collision(physicales);
         for(Physical phys: physicales) {
-            
             phys.update();
+        }
+        for(Physical phys: physicales) {
             g.setColor(phys.getColor());
 
             double[] loc = phys.getLoc();
@@ -88,10 +92,10 @@ public class Space extends JPanel {
                 if(loc[1] >= height)
                     loc[1] = 0;
             }// end outta bounds
-            g.drawPolygon(phys.getXs(loc)getXs(loc),phys.getYs(loc),phys.shape.getVertices());S
+            g.drawPolygon(phys.getXs(loc),phys.getYs(loc),phys.getVertices());
         } //end each Physical
         if(this.ballistic != null) { //add any balistic additions
-            physicales.add(this.ballistic);
+            add(this.ballistic);
             this.ballistic = null;
         }
     }
@@ -101,24 +105,18 @@ public class Space extends JPanel {
         for(Physical phys : physicales) {
             double[] loc = phys.getLoc();
             double[] cur = {loc[0],loc[1],phys.getSize(),physicales.indexOf(phys)};
-            for(double[] quad: collMap) {
-                if(Math.hypot((cur[0]-quad[0]), (cur[1]-quad[1])) < (cur[2]+quad[2])) {
-                    physicales.get((int) cur[3]).collide(physicales.get((int) quad[3]));
-                    physicales.get((int) quad[3]).collide(physicales.get((int) cur[3]));
+            for(double[] listed: collMap) {
+                if(Math.hypot((cur[0]-listed[0]), (cur[1]-listed[1])) < (cur[2]+listed[2])) {
+                    physicales.get((int) cur[3]).collide(physicales.get((int) listed[3]));
+                    physicales.get((int) listed[3]).collide(physicales.get((int) cur[3]));
                 }
             }
             collMap.add(cur);
         }
         sweepDead();
     }
-    
-    public void add(Physical phys) { ballistic = phys; }
-    public void add(ArrayList<Physical> physicals) {
-        for(Physical phys : physicals) {
-            physicales.add(phys);
-        }
-    }
-    
+    public void add(Physical phys) { physicales.add(phys); }
+    public int remain() { return (physicales.size()); }
     public void sweepDead() {
         physicales.removeIf(p -> (p.hp <= 0));
     }

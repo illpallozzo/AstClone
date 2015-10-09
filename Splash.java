@@ -108,7 +108,7 @@ public class Splash extends JPanel {
                 physicals.set(physicals.indexOf(phys), new Rock(2+ r.nextInt(15),loc,vect,(5 + r.nextInt(12)),new Color(246,167,92)));
                 
             } // end outta bounds
-            g.drawPolygon(phys.getXs(),phys.getYs(),phys.getVertices());
+            g.drawPolygon(phys.getXs(loc),phys.getYs(loc),phys.getVertices());
         } //end each rock
     } //end draw rocks    
 } //end class

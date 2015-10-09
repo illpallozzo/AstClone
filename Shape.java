@@ -13,11 +13,12 @@ import java.util.Random;
  * @author illpallozzo
  */
 public class Shape {
-    double TAO = 2 * Math.PI;
-    Random rand = new Random();
-    double[][] shipShape = {{8,6,1,6,},{0,2.7,Math.PI,3.58}};
-    double[][] weapShape = {{3,2,2},{0,3,3.28}};
-    double[][] shape;
+    public final static double TAO = 2 * Math.PI;
+    protected Random rand = new Random();
+    private final static double[][] shipShape = {{8,6,1,6,},{0,2.7,Math.PI,3.58}};
+    private final static double[][] weapShape = {{3,2,2},{0,3,3.28}};
+    protected double[][] shape;
+    protected Color color;
     int vertices;  
 
     
@@ -32,7 +33,7 @@ public class Shape {
     }
     
     public void getShape(Shapes shape, Color color) {
-        
+        this.color = color;
         switch (shape) {
             case FIGHTER : {
                 this.vertices = (shipShape[0].length);
@@ -61,15 +62,15 @@ public class Shape {
     }
     
     protected void getRockShape() {
-        int minimum = 4;
+        int minimum = 8;
         int maximum = 16;
         int size = minimum + rand.nextInt(maximum);
-        vertices = minimum + rand.nextInt(size - minimum);
+        vertices = minimum + rand.nextInt(size);
         double point = 0;
         double[][] vertexArray = new double[2][vertices];
         for(int j=0;j<vertexArray[0].length;++j) {
-            int extend = rand.nextInt(12) -4;
-        vertexArray[0][j] = size + extend;
+            int extend = rand.nextInt(minimum) - minimum;
+            vertexArray[0][j] = size + extend;
         }
         for(int i=0;i<vertexArray[1].length;++i) {
             vertexArray[1][i] = point;
@@ -93,5 +94,6 @@ public class Shape {
         }
         return retY;
     }
-    int getVertices() {return this.vertices; }
+    protected int getVertices() {return this.vertices; }
+    protected Color getColor() { return this.color; }
 }

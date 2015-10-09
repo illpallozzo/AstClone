@@ -30,7 +30,7 @@ public class Ship extends Physical {
     private final double fireOffset = 15;
 
     public Ship(double[] location, double[] vectors) {
-        super(location,vectors,4,24,true);
+        super(location,vectors,4,240,true);
         this.getShape(Shapes.FIGHTER, new Color(230,230,80));
         thrust = 0;
     }
@@ -86,8 +86,6 @@ public class Ship extends Physical {
         return weapon;
     }
     
-    @Override
-    protected void collide(Physical phys) { super.collide(phys); }
     @Override
     protected int getDmg() { return 0; }
     @Override
