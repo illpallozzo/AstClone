@@ -95,7 +95,7 @@ public class Space extends JPanel {
             g.drawPolygon(phys.getXs(loc),phys.getYs(loc),phys.getVertices());
         } //end each Physical
         if(this.ballistic != null) { //add any balistic additions
-            add(this.ballistic);
+            add(this.ballistic.);
             this.ballistic = null;
         }
     }

@@ -13,7 +13,6 @@ public class Weapon extends Physical {
 
     public Weapon(double[] location, double[] vectors) {
         super(location.clone(),vectors.clone(),2,80,false);
-        this.getShape(Shapes.MISSILE, new Color(130,180,20));
     }
 
     @Override

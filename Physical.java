@@ -3,6 +3,7 @@
  */
 package asteroids;
 
+import asteroids.shapes.Shape;
 import java.awt.Color;
 
 /**
@@ -38,12 +39,13 @@ public abstract class Physical extends Shape {
     }
         
     protected void collide(Physical phys) { 
-        this.hp -= phys.getDmg();
+        //this.hp -= phys.getDmg();
         this.collisionVector = phys.getVector().clone();
+        this.collisionVector[2] *= -1;
         for(int j=0; j<collisionVector.length;++j) {
             System.out.print(": "+ collisionVector[j] + " :");
         }
-        System.out.print(" ::" + this + "\n");
+        System.out.print(":: " + this + "\n");
     }
     
     protected double[] getVector() { return vectors.clone(); }    

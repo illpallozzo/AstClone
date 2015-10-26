@@ -16,11 +16,8 @@ public class Rock extends Physical {
     
     @Override
     protected void collide(Physical phys) {
-        double[] ploc = phys.getLoc().clone();
         super.collide(phys);
-        if((ploc[0] > this.location[0]) || (ploc[1] > this.location[1])) {
-            this.collisionVector[2] *= -1;
-        }
+        
         for(int i=0 ; i<shape[0].length; ++i) {
             if(super.shape[0][i] <= 0) {
                 this.size = 0;
