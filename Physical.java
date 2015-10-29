@@ -1,16 +1,10 @@
-/*
- * created by Nels Quinlog
- */
 package asteroids;
-
-import asteroids.shapes.Shape;
-import java.awt.Color;
 
 /**
  *
- * @author illpallozzo
+ * @author Nels Quinlog
  */
-public abstract class Physical extends Shape {
+public abstract class Physical {
       
     protected double[] vectors = {0,0,0};
     protected double[] location = {0,0,0};

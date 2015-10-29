@@ -1,12 +1,12 @@
 package asteroids;
 
-import java.awt.Color;
+import asteroids.Physical;
 
 /**
  *
- * @author illpallozzo
+ * @author nels quinlog
  */
-public class Weapon extends Physical {
+public interface Weapon extends Physical {
 
     private final double thrust = 0.05;
     private final int damage = 1000;

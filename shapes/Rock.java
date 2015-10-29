@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package asteroids.shapes;
 
+import java.awt.Graphics;
 import java.util.Random;
 
-/**
- *
- * @author illpallozzo
+/*/
+ * @author nels quinlog
  */
-public class Rock extends Shape {
+public class Rock implements Shape {
     Random rand = new Random();
-
+    private int vertices;
+    private double[][] shape;
     
     public Rock() {
         int minimum = 8;
@@ -31,5 +27,10 @@ public class Rock extends Shape {
             point += TAO / vertices;
         }
         this.vertices = shape[0].length;
+    }
+
+    @Override
+    public void drawShape(Graphics g, double[] location) {
+        sp.draw(this.shape, g, location);
     }
 }

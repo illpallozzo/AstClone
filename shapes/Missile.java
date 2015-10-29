@@ -1,18 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package asteroids.shapes;
+
+import static asteroids.shapes.Shape.sp;
+import java.awt.Graphics;
 
 /**
  *
- * @author illpallozzo
+ * @author nels quinlog
  */
-public class Missile extends Shape {
+public class Missile implements Shape {
     private final static double[][] shape = {{3,2,2},{0,3,3.28}};
+    private final static int vertices  = 4;
 
     public Missile() {
-        super.vertices = shape[0].length;
+        
+    }
+    
+    @Override
+    public void drawShape(Graphics g, double[] location) {
+        sp.draw(this.shape, g, location);
     }
 }
