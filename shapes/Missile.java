@@ -8,8 +8,8 @@ import java.awt.Graphics;
  * @author nels quinlog
  */
 public class Missile implements Shape {
-    private final static double[][] shape = {{3,2,2},{0,3,3.28}};
-    private final static int vertices  = 4;
+    private final double[][] shape = {{3,2,2},{0,3,3.28}};
+    private final int vertices  = 4;
 
     public Missile() {
         

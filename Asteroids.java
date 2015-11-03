@@ -1,5 +1,7 @@
 package asteroids;
 
+import asteroids.Physical.Ship;
+import asteroids.Physical.Rock;
 import java.awt.Color;
 import java.util.*;
 import javax.swing.JFrame;

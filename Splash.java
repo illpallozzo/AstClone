@@ -3,6 +3,8 @@
  */
 package asteroids;
 
+import asteroids.Physical.Rock;
+import asteroids.Physical.Physical;
 import java.awt.*;
 import java.util.*;
 import javax.swing.JPanel;

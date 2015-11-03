@@ -1,5 +1,6 @@
 package asteroids;
   
+import asteroids.Physical.Ship;
 import java.awt.event.*;
 import javax.swing.*;
 

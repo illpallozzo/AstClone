@@ -1,4 +1,4 @@
-package asteroids;
+package asteroids.Physical;
 
 /**
  *
@@ -24,13 +24,7 @@ public abstract class Physical {
         this.bounce += (size / 100);
     }
 
-    public void update() {
-        for(int i=0;i<location.length;++i) {
-            this.vectors[i] += this.collisionVector[i] * bounce;
-            this.location[i] += this.vectors[i];
-            this.collisionVector[i] = 0.0;
-        }
-    }
+    
         
     protected void collide(Physical phys) { 
         //this.hp -= phys.getDmg();

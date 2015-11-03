@@ -1,4 +1,4 @@
-package asteroids;
+package asteroids.Physical;
 
 import java.awt.Color;
 
@@ -9,9 +9,8 @@ import java.awt.Color;
 
 public class Rock extends Physical {
 
-    public Rock(int vertices,double[] location, double[] vectors, int size,Color color) {
+    public Rock(double[] location, double[] vectors, int size,Color color) {
         super(location,vectors,size,(size * 10),true);
-        this.getShape(Shapes.ROCK, new Color(rand.nextInt(255),rand.nextInt(255),rand.nextInt(255)));
     }
     
     @Override

@@ -1,4 +1,4 @@
-package asteroids;
+package asteroids.Physical;
 
 import java.awt.Color;
 
@@ -66,12 +66,7 @@ public class Ship extends Physical {
         }
     }
 
-    @Override
-    public void update() {
-        vectors[0] += (thrust * Math.cos(location[2]));
-        vectors[1] += (thrust * Math.sin(location[2]));
-        super.update();
-    }
+    
     
     public Weapon getWeapon() { 
         double[] weapLoc = new double[location.length];
