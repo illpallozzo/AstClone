@@ -43,7 +43,7 @@ public class Space extends JPanel {
         //g.drawString(display, 20, 400);
         collision(physicales);
         for(Physical phys: physicales) {
-            phys.update();
+            phys.update(0);
         }
         for(Physical phys: physicales) {
             g.setColor(phys.getColor());
@@ -102,21 +102,6 @@ public class Space extends JPanel {
         }
     }
     
-    public void collision(ArrayList<Physical> physicales) {
-        ArrayList<double[]> collMap = new ArrayList();
-        for(Physical phys : physicales) {
-            double[] loc = phys.getLoc();
-            double[] cur = {loc[0],loc[1],phys.getSize(),physicales.indexOf(phys)};
-            for(double[] listed: collMap) {
-                if(Math.hypot((cur[0]-listed[0]), (cur[1]-listed[1])) < (cur[2]+listed[2])) {
-                    physicales.get((int) cur[3]).collide(physicales.get((int) listed[3]));
-                    physicales.get((int) listed[3]).collide(physicales.get((int) cur[3]));
-                }
-            }
-            collMap.add(cur);
-        }
-        sweepDead();
-    }
     public void add(Physical phys) { physicales.add(phys); }
     public int remain() { return (physicales.size()); }
     public void sweepDead() {
