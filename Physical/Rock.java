@@ -4,7 +4,7 @@ import java.awt.Color;
 
 /**
  *
- * @author illpallozzo
+ * @author nels quinlog
  */
 
 public class Rock extends Physical {
