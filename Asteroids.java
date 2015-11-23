@@ -1,6 +1,6 @@
 package asteroids;
 
-import asteroids.Physical.Ship;
+import asteroids.PlayerParts.Ship;
 import asteroids.Physical.Rock;
 import java.awt.Color;
 import java.util.*;
@@ -11,11 +11,10 @@ import javax.swing.JFrame;
  * this whole project is more an exercise in math for the graphics than 
  * a serious project for for any purpose. I still want to build it 
  * correctly and have fun.
- * Possibly even make it 3D
+ * Possibly even make it 3D later as a practice un reusable code.
  */
 public class Asteroids {
     
-    private static final String[] HUDnames = {"health","attack","score"};
     private static final int height = 500;
     private static final int width  = 680;
     private static final Random r = new Random();

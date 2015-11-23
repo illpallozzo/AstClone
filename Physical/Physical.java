@@ -16,11 +16,12 @@ public class Physical implements CollisionListener {
     private int size;
     private int hp;
     
-    protected Physical(double[] location,double[] vectors,int size,int hp) {
+    protected Physical(double[] location,double[] vectors,int size,int hp, Collision col) {
         this.location = location;
         this.vectors = vectors;
         this.size = size;
         this.hp = hp;
+        col.registerListener(this);
     }
 
     public void update(double friction) {
@@ -33,7 +34,7 @@ public class Physical implements CollisionListener {
     }
 
     @Override
-    public void collide(CollisionListener cl) {
+    public void collide(CollisionListener cl) {  //TODO correct physics
         affectingVector = cl.getVector().clone();
         double multiplier = (cl.getMass() / this.mass);
         affectingVector[2] *= -1;

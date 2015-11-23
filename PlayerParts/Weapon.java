@@ -1,10 +1,12 @@
-package asteroids.Physical;
+package asteroids.PlayerParts;
+
+import asteroids.Physical.Physical;
 
 /**
  *
  * @author nels quinlog
  */
-public interface Weapon extends Physical {
+public interface Weapon {
 
     private final double thrust = 0.05;
     private final int damage = 1;

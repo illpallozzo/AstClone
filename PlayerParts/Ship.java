@@ -1,11 +1,38 @@
-package asteroids.Physical;
+package asteroids.PlayerParts;
 
+import asteroids.Physical.CollisionListener;
 import java.awt.Color;
 
 /**
  * @author Nels Quinlog
  */
-public class Ship extends Physical {
+
+public class Ship implements CollisionListener, InputListener {
+
+    @Override
+    public void collide(CollisionListener cl) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double[] getLoc() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double[] getVector() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getMass() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getSize() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public enum Maneuver {
         LEFT (-1),
@@ -81,8 +108,5 @@ public class Ship extends Physical {
         return weapon;
     }
     
-    @Override
-    protected int getDmg() { return 0; }
-    @Override
     protected void explode() { System.out.println("dead"); }    
 }

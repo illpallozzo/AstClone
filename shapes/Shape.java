@@ -8,7 +8,7 @@ import java.awt.Graphics;
  */
 public interface Shape {
     public final static double TAO = 2 * Math.PI;
-    final ShapePainter sp = new ShapePainter();
+    public static final ShapePainter sp = new ShapePainter();
     
     //pass the JPanel Graphics and location as [X,Y,Theta]
     public void drawShape(Graphics g, double[] location);

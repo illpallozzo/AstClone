@@ -9,7 +9,6 @@ import java.awt.Graphics;
  */
 public class Missile implements Shape {
     private final double[][] shape = {{3,2,2},{0,3,3.28}};
-    private final int vertices  = 4;
 
     public Missile() {
         

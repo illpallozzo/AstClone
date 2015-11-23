@@ -105,6 +105,6 @@ public class Space extends JPanel {
     public void add(Physical phys) { physicales.add(phys); }
     public int remain() { return (physicales.size()); }
     public void sweepDead() {
-        physicales.removeIf(p -> (p.hp <= 0));
+        physicales.removeCollisionIf(p -> (p.hp <= 0));
     }
 }
