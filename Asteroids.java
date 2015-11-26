@@ -11,7 +11,7 @@ import javax.swing.JFrame;
  * this whole project is more an exercise in math for the graphics than 
  * a serious project for for any purpose. I still want to build it 
  * correctly and have fun.
- * Possibly even make it 3D later as a practice un reusable code.
+ * Possibly even make it 3D later as a practice in reusable code.
  */
 public class Asteroids {
     
@@ -21,7 +21,7 @@ public class Asteroids {
     private static final double[] shipVect = {0.0,0.0,0.0};
     private static final double[] shipLoc = {300.0,300.0,0};
     private static final Ship ship = new Ship(shipLoc,shipVect);    private static final Space space = new Space(width,height);
-    private static final AsteroidUI ui = new AsteroidUI(ship,space);;
+    private static final AsteroidUI ui = new AsteroidUI();;
 
     
     /**

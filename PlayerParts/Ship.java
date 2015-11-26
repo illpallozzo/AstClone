@@ -1,39 +1,14 @@
 package asteroids.PlayerParts;
 
-import asteroids.Physical.CollisionListener;
+import asteroids.Physical.Physical;
 import java.awt.Color;
 
 /**
  * @author Nels Quinlog
  */
 
-public class Ship implements CollisionListener, InputListener {
+public class Ship extends Physical implements PlayerItem{
 
-    @Override
-    public void collide(CollisionListener cl) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double[] getLoc() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double[] getVector() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double getMass() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getSize() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     public enum Maneuver {
         LEFT (-1),
         CENTER (0),
@@ -108,5 +83,35 @@ public class Ship implements CollisionListener, InputListener {
         return weapon;
     }
     
-    protected void explode() { System.out.println("dead"); }    
+    protected void explode() { System.out.println("dead"); }   
+    
+        @Override
+    public void collide(CollisionListener cl) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double[] getLoc() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double[] getVector() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getMass() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getSize() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public void update(int keyCode) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
