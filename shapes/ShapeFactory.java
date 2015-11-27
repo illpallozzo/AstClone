@@ -1,5 +1,7 @@
 package asteroids.shapes;
 
+import java.awt.Color;
+
 /**
  *
  * @author nels quinlog
@@ -11,29 +13,33 @@ public interface ShapeFactory{
         BOMBER,
         ROCK,
         MISSILE,
-        LASER
+        LASER,
+        THRUSTER
     }
     
-    public static Shape getShape(Type type) {
+    public static Shape getShape(Type type, Color color) {
         Shape shape = null;
         switch(type){
             case FIGHTER : {
-                shape = new Fighter();
+                shape = new Fighter(color);
             } break;
             case BOMBER : {
-                //shape = new Bomber();
+                shape = new Bomber(color);
             } break;
             case ROCK : {
-                shape = new Rock();
+                shape = new Rock(color);
             } break;
             case MISSILE : {
-                shape = new Missile();
+                shape = new Missile(color);
             } break;
             case LASER : {
-                //shape = new Laser();
+                shape = new Laser(color);
+            } break;
+            case THRUSTER : {
+                shape = new Thruster(color);
             } break;
             default: {
-                shape = new Rock();
+                shape = new Rock(color);
             }break;
         }
         return shape;

@@ -1,5 +1,6 @@
 package asteroids.shapes;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -8,7 +9,8 @@ import java.awt.Graphics;
  */
 public class ShapePainter {
     
-    public Graphics draw(double[][] shape, Graphics g, double[] location) {
+    public Graphics draw(double[][] shape, Graphics g, double[] location, Color color) {
+        g.setColor(color);
         g.drawPolygon(getXs(location,shape),getYs(location,shape),shape[0].length);
         return g;
     }

@@ -1,6 +1,7 @@
 package asteroids.shapes;
 
 import static asteroids.shapes.Shape.sp;
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -9,13 +10,14 @@ import java.awt.Graphics;
  */
 public class Missile implements Shape {
     private final double[][] shape = {{3,2,2},{0,3,3.28}};
+    private final Color color;
 
-    public Missile() {
-        
+    public Missile(Color color) {
+        this.color = color;
     }
     
     @Override
-    public void drawShape(Graphics g, double[] location) {
-        sp.draw(this.shape, g, location);
+    public void drawShape(Graphics g, double[] location, Color color) {
+        sp.draw(shape, g, location, color);
     }
 }

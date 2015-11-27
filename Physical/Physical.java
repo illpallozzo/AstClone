@@ -34,7 +34,7 @@ public class Physical implements CollisionListener {
     }
 
     @Override
-    public void collide(CollisionListener cl) {  //TODO correct physics
+    public void collide(CollisionListener cl) {  //TODO correct physics here
         affectingVector = cl.getVector().clone();
         double multiplier = (cl.getMass() / this.mass);
         affectingVector[2] *= -1;

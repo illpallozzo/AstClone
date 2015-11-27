@@ -1,5 +1,6 @@
 package asteroids.shapes;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
@@ -13,7 +14,7 @@ public class Rock implements Shape {
     Random rand = new Random();
     private double[][] shape;
     
-    public Rock() {
+    public Rock(Color color) {
         int minimum = 8;
         int maximum = 16;
         int size = minimum + rand.nextInt(maximum);
@@ -33,8 +34,8 @@ public class Rock implements Shape {
     }
 
     @Override
-    public void drawShape(Graphics g, double[] location) {
-        sp.draw(this.shape, g, location);
+    public void drawShape(Graphics g, double[] location, Color color) {
+        sp.draw(shape, g, location, color);
     }
     
     protected double[] collide(double[] location, double origin, double effect) {
