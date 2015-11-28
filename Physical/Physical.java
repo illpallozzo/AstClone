@@ -6,12 +6,9 @@ package asteroids.Physical;
  */
 public class Physical implements CollisionListener {
     
-    private final static double TAO = 2 * Math.PI;
-    private final static int DIMENSIONS = 3;
     public double[] location = new double[DIMENSIONS];
     public double[] vectors = new double[DIMENSIONS];
-    private double[] affectingVector = new double[DIMENSIONS];
-    private double inertia = 1.0;
+    private double inertia = 0.99;
     private double mass;
     private int size;
     private int hp;
@@ -24,31 +21,32 @@ public class Physical implements CollisionListener {
         col.registerListener(this);
     }
 
-    public void update(double friction) {
-        for(int i=0;i<location.length;++i) {
+    @Override
+    public void update(double[] affectingVector,double friction) {
+        for(int i=0;i<DIMENSIONS;++i) {
             vectors[i] += affectingVector[i];
             vectors[i]  *= inertia - friction;
             location[i] += vectors[i];
-            affectingVector[i] = 0.0;
         }
     }
 
     @Override
     public void collide(CollisionListener cl) {  //TODO correct physics here
-        affectingVector = cl.getVector().clone();
+        double[] impactVector = cl.getVector().clone();
         double multiplier = (cl.getMass() / this.mass);
-        affectingVector[2] *= -1;
-        for(int j=0; j<affectingVector.length;++j) {
-            affectingVector[j] *= multiplier;
+        impactVector[2] *= -1;
+        for(int j=0; j<DIMENSIONS;++j) {
+            impactVector[j] *= multiplier;
             
-            System.out.print(": "+ affectingVector[j] + " :");
+            System.out.print(": "+ impactVector[j] + " :");
         }
         System.out.print(":: " + this + "\n");
     }
     
-    @Override
-    public double[] getVector() { return vectors.clone(); }    
     protected int getHP() { return this.hp; }
+    
+    @Override
+    public double[] getVector() { return vectors; }    
     @Override
     public double getMass() { return mass; }
     @Override
