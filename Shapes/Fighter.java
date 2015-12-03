@@ -1,4 +1,4 @@
-package asteroids.shapes;
+package asteroids.Shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -17,7 +17,7 @@ public class Fighter implements Shape {
     }
 
     @Override
-    public void drawShape(Graphics g, double[] location, Color color) {
+    public void drawShape(Graphics g, double[] location) {
         sp.draw(shape, g, location, color);
     }
 }

@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
  */
 
 public class ShipControlAdapter implements KeyListener {
-    private static PlayerItem ship;
+    private static Item ship;
     
     @Override
     public void keyTyped(KeyEvent e) {    }
@@ -17,19 +17,19 @@ public class ShipControlAdapter implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode())  {
             case KeyEvent.VK_LEFT: {
-                ship.command(PlayerItem.Maneuver.LEFT);
+                ship.command(Item.Command.LEFT);
             } break;
             case KeyEvent.VK_UP : {
-                ship.command(PlayerItem.Maneuver.THRUST_ON);
+                ship.command(Item.Command.THRUST_ON);
             }break;
             case KeyEvent.VK_RIGHT : {
-                ship.command(PlayerItem.Maneuver.RIGHT);
+                ship.command(Item.Command.RIGHT);
             }break;
             case KeyEvent.VK_Z : {
-                ship.command(PlayerItem.Maneuver.FIRE1);
+                ship.command(Item.Command.FIRE1);
             }break;
             case KeyEvent.VK_X : {
-                ship.command(PlayerItem.Maneuver.FIRE2);
+                ship.command(Item.Command.FIRE2);
             }break;
             default : { }
         }   
@@ -39,13 +39,13 @@ public class ShipControlAdapter implements KeyListener {
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyCode())  {
             case KeyEvent.VK_LEFT: {
-                ship.command(PlayerItem.Maneuver.CENTER);
+                ship.command(Item.Command.CENTER);
             } break;
             case KeyEvent.VK_UP : {
-                ship.command(PlayerItem.Maneuver.THRUST_OFF);
+                ship.command(Item.Command.THRUST_OFF);
             }break;
             case KeyEvent.VK_RIGHT : {
-                ship.command(PlayerItem.Maneuver.CENTER);
+                ship.command(Item.Command.CENTER);
             }break;
             case KeyEvent.VK_Z : {
             }break;

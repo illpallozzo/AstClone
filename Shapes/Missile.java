@@ -1,6 +1,6 @@
-package asteroids.shapes;
+package asteroids.Shapes;
 
-import static asteroids.shapes.Shape.sp;
+import static asteroids.Shapes.Shape.sp;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -17,7 +17,7 @@ public class Missile implements Shape {
     }
     
     @Override
-    public void drawShape(Graphics g, double[] location, Color color) {
+    public void drawShape(Graphics g, double[] location) {
         sp.draw(shape, g, location, color);
     }
 }
