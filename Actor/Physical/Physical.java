@@ -1,4 +1,4 @@
-package asteroids.Physical;
+package asteroids.Actor.Physical;
 
 /**
  *
@@ -14,15 +14,17 @@ public class Physical implements CollisionListener {
     private double mass;
     private int size;
     
-    protected Physical(double[] location,double[] vectors,int size) {
+    public Physical(Collision collision,double[] location,double[] vectors,int size) {
         this.location = location;
         this.vectors = vectors;
         this.size = size;
+        collider = collision;
+        collider.registerListener(this);
     }
-
+    
     @Override
     public double[] getLoc() { return location; }
-        @Override
+    @Override
     public double[] getVector() { return vectors; }    
     @Override
     public double getMass() { return mass; }
@@ -50,6 +52,6 @@ public class Physical implements CollisionListener {
     }
     @Override
     public CollisionListener clone(double[] loc) {
-        return new Physical(loc,this.vectors,this.size);
+        return new Physical(collider,loc,this.vectors,this.size);
     }
 }

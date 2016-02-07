@@ -1,4 +1,4 @@
-package asteroids.Shapes;
+package asteroids.Actor.Shape;
 
 import java.awt.Color;
 import java.awt.Graphics;

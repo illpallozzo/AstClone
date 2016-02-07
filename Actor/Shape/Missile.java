@@ -1,6 +1,6 @@
-package asteroids.Shapes;
+package asteroids.Actor.Shape;
 
-import static asteroids.Shapes.Shape.sp;
+import static asteroids.Actor.Shape.Shape.sp;
 import java.awt.Color;
 import java.awt.Graphics;
 

@@ -1,7 +1,8 @@
 package asteroids;
 
-import asteroids.Physical.CollisionListener;
-import static asteroids.Physical.CollisionListener.DIMENSIONS;
+import asteroids.Actor.Actor;
+import asteroids.Actor.Physical.CollisionListener;
+import static asteroids.Actor.Physical.CollisionListener.DIMENSIONS;
 import java.awt.*;
 import java.util.*;
 import javax.swing.JPanel;

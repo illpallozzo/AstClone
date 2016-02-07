@@ -1,3 +1,14 @@
+TODO LIST
+    fix physics
+    first I need the images to display  CHECK
+    the images need to be tied to the physicals
+    the tie needs to have purpose
+    I need to lay out the class connections and determine the process for this to work
+    This all could have been simple before the design patterns
+    it also would require more time to add items and many special cases
+    some states for menu play and modification
+
+
 
     public int[] getXs(double[] location) {
         int[] retX = new int[shape[0].length];

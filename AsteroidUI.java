@@ -1,7 +1,6 @@
 package asteroids;
   
-import asteroids.PlayerParts.ShipControl;
-
+import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 
 /**
@@ -12,7 +11,7 @@ import javax.swing.JPanel;
 
 public class AsteroidUI extends JPanel {
     
-    public AsteroidUI(ShipControl sc) {
+    public AsteroidUI(KeyListener sc) {
         this.addKeyListener(sc);     
     }
 }
