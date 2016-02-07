@@ -6,7 +6,6 @@ package asteroids.Actor.Physical;
  */
 public class Physical implements CollisionListener {
     
-    private Collision collider;
     private double[] location = new double[DIMENSIONS];
     private double[] vectors = new double[DIMENSIONS];
     private double[] impactVector = new double[DIMENSIONS];
@@ -14,12 +13,10 @@ public class Physical implements CollisionListener {
     private double mass;
     private int size;
     
-    public Physical(Collision collision,double[] location,double[] vectors,int size) {
+    public Physical(double[] location,double[] vectors,int size) {
         this.location = location;
         this.vectors = vectors;
         this.size = size;
-        collider = collision;
-        collider.registerListener(this);
     }
     
     @Override
@@ -48,10 +45,10 @@ public class Physical implements CollisionListener {
             
             System.out.print(": "+ impactVector[j] + " :");
         }
-        System.out.print(":: " + this + "\n");
+        System.out.println(":: " + this );
     }
     @Override
     public CollisionListener clone(double[] loc) {
-        return new Physical(collider,loc,this.vectors,this.size);
+        return new Physical(loc.clone(),this.vectors.clone(),this.size);
     }
 }

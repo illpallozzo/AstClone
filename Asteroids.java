@@ -28,12 +28,11 @@ public class Asteroids {
     private static final int height = 500;
     private static final int width  = 680;
     private static final Random r = new Random();
-    private static final double[] shipVec = {0.0,0.0,0.0};
-    private static final double[] shipLoc = {300.0,300.0,0};
+    private static double[] shipVec = {0.0,0.0,0.0};
+    private static double[] shipLoc = {height/2,width/2,0};
     private static final Collision collision = new Collision();
     private static final FieldMap space = new Space(width,height);
-    private static final Collision collisionCalc = new Collision();
-    protected static final Actor ship = new Player(ShapeFactory.getShape(ShapeFactory.Type.FIGHTER, Color.yellow), new Physical(collision,shipLoc,shipVec,2), space, 1200);    
+    private static Actor ship = new Player(ShapeFactory.getShape(ShapeFactory.Type.FIGHTER, Color.yellow), collision.getListener(shipLoc, shipVec, 2), 1200);    
     private static final KeyListener controller = new ControlAdapter((CommandListener) ship);
     private static final AsteroidUI ui = new AsteroidUI(controller);
 
@@ -68,9 +67,9 @@ public class Asteroids {
         space.addActor(ship);
         for(int i = 0; i<rocks;++i) {
             
-            /*double[] loc = {(double)  r.nextInt(width),(double) r.nextInt(height),r.nextDouble()};
+            double[] loc = {(double)  r.nextInt(width),(double) r.nextInt(height),r.nextDouble()};
             double[] vect = {(r.nextDouble() - 0.5), (r.nextDouble() - 0.5),(r.nextDouble() -  0.5)/16};
-            space.add(new Rock(5 + r.nextInt(10),loc,vect, 5 + r.nextInt(10),new Color(r.nextInt(256),r.nextInt(256),r.nextInt(256))));*/
+            space.addActor(new Actor(ShapeFactory.getShape(ShapeFactory.Type.ROCK, new Color(r.nextInt(256),r.nextInt(256),r.nextInt(256))), collision.getListener(loc,vect,12),20000));
         }       
     }    
 }

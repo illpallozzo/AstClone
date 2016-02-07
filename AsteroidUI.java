@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class AsteroidUI extends JPanel {
     
-    public AsteroidUI(KeyListener sc) {
-        this.addKeyListener(sc);     
+    public AsteroidUI(KeyListener cl) {
+        this.addKeyListener(cl);     
     }
 }
