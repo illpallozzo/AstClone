@@ -1,7 +1,7 @@
 package asteroids.Actor.Shape;
 
-import java.awt.Color;
 import java.awt.Graphics;
+
 
 /**
  *
@@ -12,5 +12,5 @@ public interface Shape {
     public static final ShapePainter sp = new ShapePainter();
     
     //pass the JPanel Graphics and location as [X,Y, directionTheta]
-    public void drawShape(Graphics g, double[] location);
+    public void drawShape(double[] location, Graphics g);
 }

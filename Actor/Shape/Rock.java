@@ -34,8 +34,8 @@ public class Rock implements Shape {
     }
 
     @Override
-    public void drawShape(Graphics g, double[] location) {
-        sp.draw(shape, g, location, this.color);
+    public void drawShape(double[] location,Graphics g) {
+        sp.draw(shape, g, location, color);
     }
     
     protected double[] collide(double[] location, double origin, double effect) {

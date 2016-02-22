@@ -9,7 +9,7 @@ public class Physical implements CollisionListener {
     private double[] location = new double[DIMENSIONS];
     private double[] vectors = new double[DIMENSIONS];
     private double[] impactVector = new double[DIMENSIONS];
-    private double inertia = 0.99;
+    private double inertia = 1.0;
     private double mass;
     private int size;
     

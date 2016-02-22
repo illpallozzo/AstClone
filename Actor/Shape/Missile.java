@@ -17,7 +17,7 @@ public class Missile implements Shape {
     }
     
     @Override
-    public void drawShape(Graphics g, double[] location) {
+    public void drawShape(double[] location,Graphics g) {
         sp.draw(shape, g, location, color);
     }
 }

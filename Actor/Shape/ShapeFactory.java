@@ -1,11 +1,5 @@
 package asteroids.Actor.Shape;
 
-import asteroids.Actor.Shape.Shape;
-import asteroids.Actor.Shape.Rock;
-import asteroids.Actor.Shape.Missile;
-import asteroids.Actor.Shape.Laser;
-import asteroids.Actor.Shape.Fighter;
-import asteroids.Actor.Shape.Bomber;
 import java.awt.Color;
 
 /**

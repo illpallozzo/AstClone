@@ -2,7 +2,6 @@ package asteroids;
 
 import asteroids.Actor.Actor;
 import asteroids.Actor.Physical.Collision;
-import asteroids.Actor.Physical.Physical;
 import asteroids.Actor.Player;
 import asteroids.Actor.Shape.ShapeFactory;
 import java.awt.Color;
@@ -31,10 +30,9 @@ public class Asteroids {
     private static double[] shipVec = {0.0,0.0,0.0};
     private static double[] shipLoc = {height/2,width/2,0};
     private static final Collision collision = new Collision();
-    private static final FieldMap space = new Space(width,height);
+    private static final Space space = new Space(width,height);
     private static Actor ship = new Player(ShapeFactory.getShape(ShapeFactory.Type.FIGHTER, Color.yellow), collision.getListener(shipLoc, shipVec, 2), 1200);    
     private static final KeyListener controller = new ControlAdapter((CommandListener) ship);
-    private static final AsteroidUI ui = new AsteroidUI(controller);
 
     
     /**
@@ -45,10 +43,9 @@ public class Asteroids {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
+                space.addKeyListener(controller);
                 populateSpace(5);
-                buildTheInteface();
-                
-                
+                buildTheInteface(); 
             }
         });  
     }
@@ -56,9 +53,8 @@ public class Asteroids {
     private static void buildTheInteface() {
         JFrame frame = new JFrame("Asteroids");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ui.add((JPanel) space);
-        ui.setFocusable(true);
-        frame.add(ui);
+        space.setFocusable(true);
+        frame.add(space);
         frame.pack();
         frame.setVisible(true);
     }

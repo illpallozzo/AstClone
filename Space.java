@@ -1,7 +1,7 @@
 package asteroids;
 
 import asteroids.Actor.Actor;
-import asteroids.Actor.Physical.CollisionListener;
+import asteroids.Actor.Physical.Collision;
 import static asteroids.Actor.Physical.CollisionListener.DIMENSIONS;
 import java.awt.*;
 import java.util.*;
@@ -10,18 +10,18 @@ import javax.swing.JPanel;
 /**
  * @author Nels Quinlog
  */
-public class Space extends JPanel implements FieldMap {
+public class Space extends JPanel {
     private int height;
     private int width;
     private final Random r = new Random();
-    private final ArrayList<Actor> colliders;
+    private ArrayList<Actor> actors = new ArrayList<>();
     private double[] fieldFlow = new double[DIMENSIONS];
     private double fieldFriction = 0;
     
-    public Space(int width, int height) {
+
+    Space(int width, int height) {
         this.height = height;
         this.width  = width;
-        colliders = new ArrayList<>();
     }
     
     @Override
@@ -42,19 +42,23 @@ public class Space extends JPanel implements FieldMap {
 
     private void drawShapes (Graphics g) {
  
-        for(CollisionListener phys: colliders) {
-            phys.update(fieldFlow,fieldFriction);
-        }
-        for(Actor phys: colliders) {
+        Collision.collisionCheck();
+        
+        for(Actor phys: actors) {
             phys.paintSelf(g);
         }
     }
     
     public void sweepDead() {
-        colliders.removeIf(p -> (p.getHP() <= 0));
+        actors.removeIf(p -> (p.getHP() <= 0));
     }
-    @Override
+    
     public void addActor(Actor cl) {
-        colliders.add(cl);
+        actors.add(cl);
+    }
+    
+    @Override
+    public Graphics getGraphics() {
+        return super.getGraphics();
     }
 }
